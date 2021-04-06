@@ -1,27 +1,23 @@
-from src.models.User import db, User
-from utils.heplers import read_csv_data
+from models.User import db, User
+from csv_module.generate_csv import read_from_csv
 
 
 class UserDAO:
-    @classmethod
-    def create_user(cls, apple_id):
-        created_user = User(apple_id=apple_id)
+    def create_user(self, user_id, apple_id):
+        created_user = User(id=user_id, apple_id=apple_id)
         db.session.add(created_user)
         db.session.commit()
-
         return created_user
 
-    @classmethod
-    def get_user(cls, user_id=None, apple_id=None):
-        if user_id is not None:
-            user = User.query.filter_by(id=user_id).first()
-            return user
-        elif apple_id is not None:
-            user = User.query.filter_by(apple_id=apple_id).first()
-            return user
-        else:
-            return None
+    def get_user(self, user_id):
+        user = User.query.filter_by(id=user_id).first()
+        return user
 
-    @classmethod
-    def read_csv_user(cls, filename):
-        return read_csv_data(filename, ['email'], ['sub_type', 'price'])
+    def read_user_from_csv(self, filename):
+        return read_from_csv(filename, 'User')
+
+    def create_user_from_csv(self, user_headers, user_data):
+        created_user = User()
+        created_user.from_csv(user_headers, user_data)
+        db.session.add(created_user)
+        db.session.commit()

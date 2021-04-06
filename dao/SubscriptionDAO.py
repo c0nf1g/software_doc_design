@@ -1,12 +1,12 @@
-from src.models.Subscription import db, Subscription
-from utils.heplers import read_csv_data
+from models.Subscription import db, Subscription
+from csv_module.generate_csv import read_from_csv
 
 
 class SubscriptionDAO:
-    @classmethod
-    def create_subscription(cls, active_until, last_payment,
+    def create_subscription(self, sub_id, active_until, last_payment,
                             is_active, user, subscription_type):
-        created_subscription = Subscription(active_until=active_until,
+        created_subscription = Subscription(id=sub_id,
+                                            active_until=active_until,
                                             last_payment=last_payment,
                                             is_active=is_active,
                                             user=user,
@@ -15,9 +15,16 @@ class SubscriptionDAO:
         db.session.commit()
 
         return created_subscription
-    
-    @classmethod
-    def read_csv_subscription(cls, filename):
-        return read_csv_data(filename, 
-                             ['active_until', 'last_payment', 'is_active', 'user', 'sub_type'],
-                             ['album', 'song_number', 'duration', 'artist'])
+
+    def get_subscription(self, sub_id):
+        subscription = Subscription.query.filter_by(id=sub_id).first()
+        return subscription
+
+    def read_subscription_from_csv(self, filename):
+        return read_from_csv(filename, 'Subscription')
+
+    def create_subscription_from_csv(self, subscription_headers, subscription_data):
+        created_subscription = Subscription()
+        created_subscription.from_csv(subscription_headers, subscription_data)
+        db.session.add(created_subscription)
+        db.session.commit()
