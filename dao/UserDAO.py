@@ -1,4 +1,5 @@
-from src.models import db, User
+from src.models.User import db, User
+from utils.heplers import read_csv_data
 
 
 class UserDAO:
@@ -20,3 +21,7 @@ class UserDAO:
             return user
         else:
             return None
+
+    @classmethod
+    def read_csv_user(cls, filename):
+        return read_csv_data(filename, ['email'], ['sub_type', 'price'])

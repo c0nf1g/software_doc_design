@@ -1,4 +1,4 @@
-from src.models import db, Album
+from src.models.Album import db, Album
 
 
 class AlbumDAO:

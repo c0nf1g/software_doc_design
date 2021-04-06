@@ -1,4 +1,4 @@
-from src.models import db, PlaylistHasSong
+from src.models.PlaylistHasSong import db, PlaylistHasSong
 
 
 class PlaylistHasSongDAO:

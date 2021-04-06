@@ -1,4 +1,4 @@
-from src.models import db, Song
+from src.models.Song import db, Song
 
 
 class SongDAO:

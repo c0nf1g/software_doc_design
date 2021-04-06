@@ -1,4 +1,4 @@
-from src.models import db, Artist
+from src.models.Artist import db, Artist
 
 
 class ArtistDAO:

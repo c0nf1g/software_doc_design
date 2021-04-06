@@ -1,4 +1,5 @@
-from src.models import db, Subscription
+from src.models.Subscription import db, Subscription
+from utils.heplers import read_csv_data
 
 
 class SubscriptionDAO:
@@ -14,3 +15,9 @@ class SubscriptionDAO:
         db.session.commit()
 
         return created_subscription
+    
+    @classmethod
+    def read_csv_subscription(cls, filename):
+        return read_csv_data(filename, 
+                             ['active_until', 'last_payment', 'is_active', 'user', 'sub_type'],
+                             ['album', 'song_number', 'duration', 'artist'])

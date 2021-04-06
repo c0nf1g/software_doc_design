@@ -1,4 +1,4 @@
-from src.models import db, Playlist
+from src.models.Playlist import db, Playlist
 
 
 class PlaylistDAO:
