@@ -7,7 +7,10 @@ class ArtistController:
 
     def get_artist(self, artist_id):
         return self.artist_dao.get_artist(artist_id)
-    
+
+    def get_artists(self):
+        return self.artist_dao.get_artists()
+
     def create_artist_from_csv(self, filename):
         artist_data = self.artist_dao.read_artist_from_csv(filename)
         artist_header, artist_values = artist_data['Artist']

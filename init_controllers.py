@@ -20,7 +20,7 @@ subscription_controller = SubscriptionController(subscription_dao)
 subscription_type_controller = SubscriptionTypeController(subscription_type_dao)
 
 
-def execute_controllers(path):
+def create_all_from_csv(path):
     user_controller.create_user_from_csv(path)
     artist_controller.create_artist_from_csv(path)
     subscription_type_controller.create_subscription_type_from_csv(path)

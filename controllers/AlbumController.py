@@ -16,7 +16,10 @@ class AlbumController:
     
     def get_album(self, album_id):
         return self.album_dao.get_album(album_id)
-    
+
+    def get_albums(self):
+        return self.album_dao.get_albums()
+
     def create_album_from_csv(self, filename):
         album_data = self.album_dao.read_album_from_csv(filename)
         album_header, album_values = album_data['Album']

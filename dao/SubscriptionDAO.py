@@ -20,6 +20,10 @@ class SubscriptionDAO:
         subscription = Subscription.query.filter_by(id=sub_id).first()
         return subscription
 
+    def get_subscriptions(self):
+        subscriptions = Subscription.query.all()
+        return subscriptions
+
     def read_subscription_from_csv(self, filename):
         return read_from_csv(filename, 'Subscription')
 

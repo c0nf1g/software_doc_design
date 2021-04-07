@@ -18,6 +18,10 @@ class AlbumDAO:
     def get_album(self, album_id):
         album = Album.query.filter_by(id=album_id).first()
         return album
+
+    def get_albums(self):
+        albums = Album.query.all()
+        return albums
     
     def read_album_from_csv(self, filename):
         return read_from_csv(filename, 'Album')

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from . import db
 from models.Base import Base
 
@@ -22,6 +24,6 @@ class Song(db.Model, Base):
             'id': self.id,
             'artist_id': self.artist_id,
             'album_id': self.album_id,
-            'duration': self.duration
+            'duration': self.duration.strftime('%H:%M:%S')
         }
         return result

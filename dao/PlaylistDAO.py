@@ -16,6 +16,10 @@ class PlaylistDAO:
         playlist = Playlist.query.filter_by(id=playlist_id)
         return playlist
 
+    def get_playlists(self):
+        playlists = Playlist.query.all()
+        return playlists
+
     def read_playlist_from_csv(self, filename):
         return read_from_csv(filename, 'Playlist')
 

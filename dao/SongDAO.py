@@ -17,6 +17,10 @@ class SongDAO:
     def get_song(self, song_id):
         song = Song.query.filter_by(id=song_id).first()
         return song
+
+    def get_songs(self):
+        songs = Song.query.all()
+        return songs
     
     def read_song_from_csv(self, filename):
         return read_from_csv(filename, 'Song')

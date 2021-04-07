@@ -18,6 +18,9 @@ class SubscriptionController:
     def get_subscription(self, sub_id):
         return self.subscription_dao.get_subscription(sub_id)
 
+    def get_subscriptions(self):
+        return self.subscription_dao.get_subscriptions()
+
     def create_subscription_from_csv(self, filename):
         subscription_data = self.subscription_dao.read_subscription_from_csv(filename)
         subscription_header, subscription_values = subscription_data['Subscription']

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from config import CSV_FILE_PATH
-from init_controllers import execute_controllers
+from init_controllers import create_all_from_csv
 import os
 
 
@@ -13,6 +13,6 @@ def load_from_file():
     filename = csv_data['filename']
     path = os.path.join(CSV_FILE_PATH, filename)
 
-    execute_controllers(path)
+    create_all_from_csv(path)
 
     return jsonify({'response': 'success'})

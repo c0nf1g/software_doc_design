@@ -19,7 +19,7 @@ class Album(db.Model, Base):
             'id': self.id,
             'name': self.name,
             'song_number': self.song_number,
-            'duration': self.duration,
+            'duration': self.duration.strftime('%H:%M:%S'),
             'artist_id': self.artist_id
         }
         return result

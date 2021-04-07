@@ -14,6 +14,10 @@ class SubscriptionTypeDAO:
         sub_type = SubscriptionType.query.filter_by(id=sub_type_id).first()
         return sub_type
 
+    def get_subscription_types(self):
+        sub_types = SubscriptionType.query.all()
+        return sub_types
+
     def read_subscription_type_from_csv(self, filename):
         return read_from_csv(filename, 'SubscriptionType')
 

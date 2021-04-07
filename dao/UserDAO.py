@@ -13,6 +13,10 @@ class UserDAO:
         user = User.query.filter_by(id=user_id).first()
         return user
 
+    def get_users(self):
+        users = User.query.all()
+        return users
+
     def read_user_from_csv(self, filename):
         return read_from_csv(filename, 'User')
 

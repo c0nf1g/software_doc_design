@@ -13,9 +13,12 @@ class PlaylistHasSongController:
             playlist,
             song
         )
-    
+
     def get_playlist_song_record(self, id):
         return self.playlist_song_dao.get_playlist_song_record(id)
+
+    def get_playlist_song_records(self):
+        return self.playlist_song_dao.get_playlist_song_records()
 
     def add_song_to_playlist_from_csv(self, filename):
         playlist_song_data = self.playlist_song_dao.read_playlist_song_from_csv(filename)

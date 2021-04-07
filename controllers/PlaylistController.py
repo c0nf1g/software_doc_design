@@ -7,7 +7,10 @@ class PlaylistController:
         
     def get_playlist(self, playlist_id):
         return self.playlist_dao.get_playlist(playlist_id)
-    
+
+    def get_playlists(self):
+        return self.playlist_dao.get_playlists()
+
     def create_playlist_from_csv(self, filename):
         playlist_data = self.playlist_dao.read_playlist_from_csv(filename)
         playlist_header, playlist_values = playlist_data['Playlist']

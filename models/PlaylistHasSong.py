@@ -23,6 +23,6 @@ class PlaylistHasSong(db.Model, Base):
             'playlist_id': self.playlist_id,
             'song_id': self.song_id,
             'is_downloaded': self.is_downloaded,
-            'stop_time': self.stop_time
+            'stop_time': self.stop_time.strftime('%H:%M:%S')
         }
         return result

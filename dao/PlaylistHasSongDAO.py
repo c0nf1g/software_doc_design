@@ -22,6 +22,10 @@ class PlaylistHasSongDAO:
     def get_playlist_song_record(self, playlist_song_id):
         playlist_song = PlaylistHasSong.query.filter_by(id=playlist_song_id).first()
         return playlist_song
+
+    def get_playlist_song_records(self):
+        playlist_songs = PlaylistHasSong.query.all()
+        return playlist_songs
         
     def read_playlist_song_from_csv(self, filename):
         return read_from_csv(filename, 'PlaylistHasSong')

@@ -13,6 +13,10 @@ class ArtistDAO:
         artist = Artist.query.filter_by(id=artist_id).first()
         return artist
 
+    def get_artists(self):
+        artists = Artist.query.all()
+        return artists
+
     def read_artist_from_csv(self, filename):
         return read_from_csv(filename, 'Artist')
     
