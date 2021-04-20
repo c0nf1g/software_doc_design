@@ -1,4 +1,4 @@
-class SubscriptionController:
+class SubscriptionService:
     def __init__(self, subscription_dao):
         self.subscription_dao = subscription_dao
         

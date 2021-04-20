@@ -1,4 +1,4 @@
-class PlaylistHasSongController:
+class PlaylistHasSongService:
     def __init__(self, playlist_song_dao):
         self.playlist_song_dao = playlist_song_dao
 

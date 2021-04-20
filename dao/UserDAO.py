@@ -3,8 +3,11 @@ from csv_module.generate_csv import read_from_csv
 
 
 class UserDAO:
-    def create_user(self, user_id, apple_id):
-        created_user = User(id=user_id, apple_id=apple_id)
+    def create_user(self, apple_id, user_id=None):
+        if user_id is None:
+            created_user = User(apple_id=apple_id)
+        else:
+            created_user = User(id=user_id, apple_id=apple_id)
         db.session.add(created_user)
         db.session.commit()
         return created_user
@@ -16,6 +19,18 @@ class UserDAO:
     def get_users(self):
         users = User.query.all()
         return users
+
+    def update_user(self, user_id, apple_id):
+        user = self.get_user(user_id=user_id)
+        user.apple_id = apple_id
+        db.session.commit()
+        return user
+
+    def delete_user(self, user_id):
+        user = self.get_user(user_id=user_id)
+        db.session.delete(user)
+        db.session.commit()
+        return user
 
     def read_user_from_csv(self, filename):
         return read_from_csv(filename, 'User')

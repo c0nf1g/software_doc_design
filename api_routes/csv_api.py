@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from config import CSV_FILE_PATH
-from init_controllers import create_all_from_csv
+from init_layers import create_all_from_csv
 import os
 
 

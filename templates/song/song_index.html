@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="text-center">Song page</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 250px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('song.get_songs') }}" method="get">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <button type="submit" class="btn btn-primary">GET</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 250px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('song.add_song') }}" method="post">
+                        <input type="text" name="name" class="form-control" placeholder="Name">
+                        <input type="text" name="duration" class="form-control" placeholder="Duration">
+                        <input type="text" name="album_id" class="form-control" placeholder="Album Id">
+                        <input type="text" name="artist_id" class="form-control" placeholder="Artist Id">
+                        <button type="submit" class="btn btn-success">POST</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 250px;">
+                <div class="panel-body">
+                     <form action="{{ url_for('song.update_song') }}" method="post">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <input type="text" name="name" class="form-control" placeholder="Name">
+                        <input type="text" name="duration" class="form-control" placeholder="Duration">
+                        <input type="text" name="album_id" class="form-control" placeholder="Album Id">
+                        <input type="text" name="artist_id" class="form-control" placeholder="Artist Id">
+                        <button type="submit" class="btn btn-warning">PUT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 250px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('song.delete_song') }}" method="post">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

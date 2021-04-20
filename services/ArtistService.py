@@ -1,4 +1,4 @@
-class ArtistController:
+class ArtistService:
     def __init__(self, artist_dao):
         self.artist_dao = artist_dao
 

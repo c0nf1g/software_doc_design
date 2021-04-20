@@ -1,4 +1,4 @@
-class AlbumController:
+class AlbumService:
     def __init__(self, album_dao):
         self.album_dao = album_dao
         

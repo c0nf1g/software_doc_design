@@ -1,4 +1,4 @@
-class PlaylistController:
+class PlaylistService:
     def __init__(self, playlist_dao):
         self.playlist_dao = playlist_dao
 
