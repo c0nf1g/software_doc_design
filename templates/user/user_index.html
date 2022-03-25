@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="text-center">User page</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 150px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('user.get_users') }}" method="get">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <button type="submit" class="btn btn-primary">GET</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 150px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('user.create_user') }}" method="post">
+                        <input type="text" name="apple_id" class="form-control" placeholder="Apple Id">
+                        <button type="submit" class="btn btn-success">POST</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 150px;">
+                <div class="panel-body">
+                     <form action="{{ url_for('user.update_user') }}" method="post">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <input type="text" name="apple_id" class="form-control" placeholder="Apple Id">
+                        <button type="submit" class="btn btn-warning">PUT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height: 150px;">
+                <div class="panel-body">
+                    <form action="{{ url_for('user.delete_user') }}" method="post">
+                        <input type="text" name="id" class="form-control" placeholder="Id">
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
